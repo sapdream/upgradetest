@@ -1,4 +1,4 @@
-straemlit
+streamlit
 statsmodels
 pandas
 scikit-learn

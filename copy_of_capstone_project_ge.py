@@ -110,27 +110,3 @@ def main():
 
 if __name__ == "__main__":
     main()
-
-y = train['visit_count']
-
-ARMAmodel = SARIMAX(y, order = (1, 0, 1))
-ARMAmodel = ARMAmodel.fit()
-
-pickle_out = open("rf.pkl", mode = "wb")
-pickle.dump(ARMAmodel, pickle_out)
-pickle_out.close()
-
-y_pred = ARMAmodel.get_forecast(len(test.index))
-y_pred_df = y_pred.conf_int(alpha = 0.05)
-y_pred_df["Predictions"] = ARMAmodel.predict(start = y_pred_df.index[0], end = y_pred_df.index[-1])
-y_pred_df.index = test.index
-y_pred_out = y_pred_df["Predictions"]
-
-plt.plot(y_pred_out, test['visit_count'],  color='green', label = 'Predictions')
-#use ARMA model to feed in train's visit_count and use test date as example for forecast
-
-from sklearn.metrics import mean_squared_error
-from math import sqrt
-rmse = sqrt(mean_squared_error(test['visit_count'], y_pred_out))
-#evaluate performance
-

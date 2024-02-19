@@ -47,7 +47,7 @@ def main():
       if maximum_count > results and highest_count < results:
         st.markdown("The estimated number of patient on this date will be " + str(results) + " patients, which is considered busy for this clinic, estimated waiting time is 2 hours.")
       else:
-        print("The estimated number of patient on this date will be " + str(results) + " patients, which is considered not busy for this clinic, estimated waiting time is 15 minutes.")
+        st.markdown("The estimated number of patient on this date will be " + str(results) + " patients, which is considered not busy for this clinic, estimated waiting time is 15 minutes.")
 
 if __name__ == "__main__":
     main()

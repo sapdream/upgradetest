@@ -7,11 +7,6 @@ Original file is located at
     https://colab.research.google.com/drive/17shBggJYp-lrYlrGpF4CKB_CO4vNPQbq
 """
 
-from google.colab import drive
-drive.mount('/content/gdrive', force_remount = True)
-
-!pip install streamlit
-
 import pandas as pd
 from sklearn.model_selection import train_test_split
 from sklearn.ensemble import RandomForestRegressor

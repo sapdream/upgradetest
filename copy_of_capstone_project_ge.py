@@ -21,16 +21,12 @@ def load_data():
     return data
 
 def getprediction(input_date):
-  data = load_data()
-  start_date = datetime.datetime(2024,2,19)
-  end_date = datetime.datetime(2025,12,12)
+  index_future_dates=pd.date_range(start='2024-01-26', end='2024-02-25')
 
-  y_pred = model.get_forecast(len(data.index))
-  y_pred_df = y_pred.conf_int(alpha = 0.05)
-  y_pred_df["Predictions"] = model.predict(start = start_date, end = end_date)
-  y_pred_df.index = input_date
-  y_pred_out = y_pred_df["Predictions"]
-  prediction = y_pred_out[input_date]
+    pred=model.predict(start=len(data),end=len(data)+30,typ='levels').rename('ARMA Predictions')
+    pred.index = index_future_dates
+    prediction = pred[input_date])
+    prediction = round(prediction)
 
   return prediction
 

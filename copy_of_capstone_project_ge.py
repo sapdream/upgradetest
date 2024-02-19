@@ -11,6 +11,7 @@ Original file is located at
 import streamlit as st
 import pickle
 import datetime
+import pandas as pd
 #do training model
 pickle_in = open('rf.pkl', 'rb')
 model = pickle.load(pickle_in)

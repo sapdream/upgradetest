@@ -42,8 +42,7 @@ def main():
   if st.button('Predict'):
       results = getprediction(input_text)
       st.markdown(results)
-      prediction = round(pred['2024-02-19'])
-      if max(data['count']) > prediction:
+      if max(data['count']) > results:
         print("Not Busy")
       else:
         print("Busy")

@@ -19,20 +19,16 @@ data.head(2)
 
 visit_date = data['visit_date']
 #check visit_ date type
-print(visit_date.dtype)
 
 visit_date1=visit_date.astype("string")
 #convert to string so that we can split the date and time
-print(visit_date1.dtype)
 
 new = visit_date1.str.split(" ", n=1, expand=True)
 visit_date2= new[0]
 #split as new column
-print(visit_date2)
 
 visit_date3= pd.to_datetime(visit_date2)
 #convert back to date time
-print(visit_date3)
 
 data2= data.drop(['visit_date'],axis=1)
 #drop the visit_date column
@@ -94,9 +90,6 @@ plt.show()
 
 plt.legend()
 
-print(test.index)
-print(data3.columns)
-
 from statsmodels.tsa.statespace.sarimax import SARIMAX
 
 import streamlit as st
@@ -127,8 +120,6 @@ if __name__ == "__main__":
 
 """#1. ARMA"""
 
-print(train.columns)
-
 y = train['visit_count']
 
 ARMAmodel = SARIMAX(y, order = (1, 0, 1))
@@ -146,7 +137,6 @@ plt.plot(y_pred_out, test['visit_count'],  color='green', label = 'Predictions')
 from sklearn.metrics import mean_squared_error
 from math import sqrt
 rmse = sqrt(mean_squared_error(test['visit_count'], y_pred_out))
-print("RMSE:", round(rmse,2))
 #evaluate performance
 
 """# 1.ANN"""
@@ -204,7 +194,6 @@ history = model.fit(X_train, y_train, epochs=epochs, batch_size=batch_size, vali
 
 # Evaluate the LSTM model
 loss, accuracy = model.evaluate(X_test, y_test, verbose=0)
-print("LSTM Test Accuracy:", accuracy)
 
 # Get training and validation loss
 import matplotlib.pyplot as plt

@@ -57,11 +57,6 @@ data3.head(10)
 data3=data3.set_index('visit_date') #set the visit_date as index
 data3.head(10)
 
-!pip install pandas-datareader
-!pip install streamlit
-
-!/bin/bash -m pip install --upgrade pip
-
 import pandas_datareader.data as web
 import datetime
 

@@ -1,0 +1,8 @@
+straemlit
+statsmodels
+pandas
+scikit-learn
+matplotlib
+pandas-datareader
+pandas_datareader
+seaborn

@@ -21,6 +21,7 @@ def load_data():
     return data
 
 def getprediction(input_date):
+  data = load_data()
   index_future_dates=pd.date_range(start='2024-01-26', end='2024-02-25')
 
   pred=model.predict(start=len(data),end=len(data)+30,typ='levels').rename('ARMA Predictions')

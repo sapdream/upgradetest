@@ -89,12 +89,11 @@ from statsmodels.tsa.statespace.sarimax import SARIMAX
 import streamlit as st
 
 def getprediction(input_date):
-  y = train['visit_count']
 
-  ARMAmodel = SARIMAX(y, order = (1, 0, 1))
-  ARMAmodel = ARMAmodel.fit()
+  pickle_in = open('rf.pkl', 'rb')
+  model = pickle.load(pickle_in)
 
-  y_pred = ARMAmodel.get_forecast(len(test.index))
+  y_pred = model.get_forecast(len(test.index))
   y_pred_df = y_pred.conf_int(alpha = 0.05)
   y_pred_df["Predictions"] = ARMAmodel.predict(start = y_pred_df.index[0], end = y_pred_df.index[-1])
   y_pred_df.index = test.index
@@ -116,6 +115,10 @@ y = train['visit_count']
 
 ARMAmodel = SARIMAX(y, order = (1, 0, 1))
 ARMAmodel = ARMAmodel.fit()
+
+pickle_out = open("rf.pkl", mode = "wb")
+pickle.dump(ARMAmodel, pickle_out)
+pickle_out.close()
 
 y_pred = ARMAmodel.get_forecast(len(test.index))
 y_pred_df = y_pred.conf_int(alpha = 0.05)

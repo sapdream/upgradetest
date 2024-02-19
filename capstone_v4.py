@@ -41,10 +41,13 @@ def main():
   if st.button('Predict'):
       results = getprediction(input_text)
       st.markdown(results)
-      if max(data['count']) > results:
-        st.markdown("Not Busy")
+      maximum_count = max(data['count'])
+      minimum_count = min(data['count'])
+      highest_count = maximum_count - minimum_count
+      if maximum_count > prediction and highest_count < prediction:
+        print("Busy")
       else:
-         st.markdown("Busy")
+        print("Not Busy")
 
 if __name__ == "__main__":
     main()

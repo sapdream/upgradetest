@@ -7,8 +7,6 @@ Original file is located at
     https://colab.research.google.com/drive/1GMBXFYKjHX039JjxVRZmZudAgpiHqwVb
 """
 
-!/bin/bash -m pip install --upgrade pip
-
 import streamlit as st
 import pickle
 import datetime

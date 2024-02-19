@@ -95,7 +95,7 @@ def getprediction(input_date):
 
   y_pred = model.get_forecast(len(test.index))
   y_pred_df = y_pred.conf_int(alpha = 0.05)
-  y_pred_df["Predictions"] = ARMAmodel.predict(start = y_pred_df.index[0], end = y_pred_df.index[-1])
+  y_pred_df["Predictions"] = model.predict(start = y_pred_df.index[0], end = y_pred_df.index[-1])
   y_pred_df.index = test.index
   y_pred_out = y_pred_df["Predictions"]
 

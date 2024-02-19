@@ -6,5 +6,4 @@ matplotlib
 pandas-datareader
 pandas_datareader
 seaborn
-pickle
 datetime

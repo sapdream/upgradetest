@@ -13,7 +13,7 @@ from sklearn.ensemble import RandomForestRegressor
 from sklearn.metrics import mean_squared_error
 import matplotlib.pyplot as plt
 
-data = pd.read_csv('gdrive/My Drive/Colab_Notebooks/capstoneproject/capstonedata.csv')
+data = pd.read_csv('capstonedata.csv')
 
 data.head(2)
 

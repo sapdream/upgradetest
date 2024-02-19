@@ -93,7 +93,9 @@ model = pickle.load(pickle_in)
 
 def getprediction(input_date):
 
-  
+  prediction = model.predict(input_date)
+
+  return prediction
 
   #y_pred = model.get_forecast(len(test.index))
   #y_pred_df = y_pred.conf_int(alpha = 0.05)

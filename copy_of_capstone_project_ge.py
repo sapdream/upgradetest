@@ -17,7 +17,7 @@ pickle_in = open('rf.pkl', 'rb')
 model = pickle.load(pickle_in)
 
 def load_data():
-    data = pd.read_csv('capstonedata.csv')
+    data = pd.read_csv('out.csv')
     return data
 
 def getprediction(input_date):
@@ -37,11 +37,16 @@ def getprediction(input_date):
 def main():
   st.title('Clinic Peak Hour Prediction System')
   input_text = st.date_input("Enter Date to find busyness")
-
+  data = load_data()
   
   if st.button('Predict'):
       results = getprediction(input_text)
       st.markdown(results)
+      prediction = round(pred['2024-02-19'])
+      if max(data['count']) > prediction:
+        print("Not Busy")
+      else:
+        print("Busy")
 
 if __name__ == "__main__":
     main()

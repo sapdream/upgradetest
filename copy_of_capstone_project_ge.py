@@ -9,6 +9,7 @@ Original file is located at
 
 
 import streamlit as st
+import pickle
 #do training model
 pickle_in = open('rf.pkl', 'rb')
 model = pickle.load(pickle_in)

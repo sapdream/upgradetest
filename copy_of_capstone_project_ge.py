@@ -13,6 +13,10 @@ import streamlit as st
 pickle_in = open('rf.pkl', 'rb')
 model = pickle.load(pickle_in)
 
+def load_data():
+    data = pd.read_csv('capstonedata.csv')
+    return data
+
 def getprediction(input_date):
 
   prediction = model.predict(input_date)

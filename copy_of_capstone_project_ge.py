@@ -106,7 +106,7 @@ def main():
   input_text = st.date_input("Enter Date to find busyness")
 
   results = getprediction(input_text)
-  #st.markdown(results)
+  st.markdown(results)
 
 if __name__ == "__main__":
     main()

@@ -29,8 +29,7 @@ visit_date3= pd.to_datetime(visit_date2)
 #convert back to date time
 
 data2= data.drop(['visit_date'],axis=1)
-#drop the visit_date column
-data2 #drop object Visit Date
+#drop the visit_date column #drop object Visit Date
 
 data2.insert(3,"visit_date",visit_date3,True) #insert datetime date
 #insert back the date column only

@@ -20,12 +20,12 @@ def load_data():
     return data
 
 def getprediction(input_date):
-
+  data = load_data()
   start_date = datetime.datetime(2024,2,19)
   end_date = datetime.datetime(2025,12,12)
 
-  #y_pred = model.get_forecast(len(test.index))
-  #y_pred_df = y_pred.conf_int(alpha = 0.05)
+  y_pred = model.get_forecast(len(data.index))
+  y_pred_df = y_pred.conf_int(alpha = 0.05)
   y_pred_df["Predictions"] = model.predict(start = start_date, end = end_date)
   y_pred_df.index = input_date
   y_pred_out = y_pred_df["Predictions"]

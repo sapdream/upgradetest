@@ -42,9 +42,9 @@ def main():
       results = getprediction(input_text)
       st.markdown(results)
       if max(data['count']) > results:
-        print("Not Busy")
+        st.markdown("Not Busy")
       else:
-        print("Busy")
+         st.markdown("Busy")
 
 if __name__ == "__main__":
     main()

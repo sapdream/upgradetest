@@ -87,19 +87,22 @@ plt.legend()
 from statsmodels.tsa.statespace.sarimax import SARIMAX
 
 import streamlit as st
+#do training model
+pickle_in = open('rf.pkl', 'rb')
+model = pickle.load(pickle_in)
 
 def getprediction(input_date):
 
-  pickle_in = open('rf.pkl', 'rb')
-  model = pickle.load(pickle_in)
+  
 
-  y_pred = model.get_forecast(len(test.index))
-  y_pred_df = y_pred.conf_int(alpha = 0.05)
-  y_pred_df["Predictions"] = model.predict(start = y_pred_df.index[0], end = y_pred_df.index[-1])
-  y_pred_df.index = test.index
-  y_pred_out = y_pred_df["Predictions"]
+  #y_pred = model.get_forecast(len(test.index))
+  #y_pred_df = y_pred.conf_int(alpha = 0.05)
+  #y_pred_df["Predictions"] = model.predict(start = y_pred_df.index[0], end = y_pred_df.index[-1])
+  #y_pred_df.index = input_date
+  #y_pred_out = y_pred_df["Predictions"]
+    
 
-  return y_pred_out
+  #return y_pred_out
 
 def main():
   st.title('Clinic Peak Hour Prediction System')
@@ -108,7 +111,7 @@ def main():
   
   if st.button('Predict'):
       results = getprediction(input_text)
-  st.markdown(results)
+      st.markdown(results)
 
 if __name__ == "__main__":
     main()

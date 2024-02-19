@@ -127,8 +127,6 @@ if __name__ == "__main__":
 
 """#1. ARMA"""
 
-!pip install statsmodels
-
 print(train.columns)
 
 y = train['visit_count']

@@ -25,7 +25,7 @@ def getprediction(input_date):
 
   pred=model.predict(start=len(data),end=len(data)+30,typ='levels').rename('ARMA Predictions')
   pred.index = index_future_dates
-  prediction = pred[input_date])
+  prediction = pred[input_date]
   prediction = round(prediction)
 
   return prediction

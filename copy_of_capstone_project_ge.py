@@ -15,8 +15,6 @@ import matplotlib.pyplot as plt
 
 data = pd.read_csv('capstonedata.csv')
 
-data.head(2)
-
 visit_date = data['visit_date']
 #check visit_ date type
 
@@ -44,14 +42,10 @@ m2 = visit_date.ne(visit_date.shift())
 data2['visit_count'] = data2.groupby((m1 | m2).cumsum()).cumcount().add(1).values
 #count the number of patients in a day
 
-data2.head(10)
-
 data3 =data2.groupby(data2['visit_date'],as_index=False).sum('count') #,as_index=False group the count by date
 Visdate = data3.visit_date
-data3.head(10)
 
 data3=data3.set_index('visit_date') #set the visit_date as index
-data3.head(10)
 
 import pandas_datareader.data as web
 import datetime

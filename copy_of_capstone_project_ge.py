@@ -48,6 +48,7 @@ data3=data3.set_index('visit_date') #set the visit_date as index
 
 import pandas_datareader.data as web
 import datetime
+import pickle
 
 import pandas as pd
 pd.set_option('display.max_columns', None)

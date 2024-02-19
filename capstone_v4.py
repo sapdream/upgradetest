@@ -40,14 +40,14 @@ def main():
 
   if st.button('Predict'):
       results = getprediction(input_text)
-      st.markdown(results)
+      
       maximum_count = max(data['count'])
       minimum_count = min(data['count'])
       highest_count = maximum_count - minimum_count
-      if maximum_count > prediction and highest_count < prediction:
-        print("Busy")
+      if maximum_count > result and highest_count < result:
+        st.markdown("The estimated number of patient on this date will be " + results + " patients, which is considered busy for this clinic, estimated waiting time is 2 hours.")
       else:
-        print("Not Busy")
+        print("The estimated number of patient on this date will be " + results + " patients, which is considered not busy for this clinic, estimated waiting time is 15 minutes."")
 
 if __name__ == "__main__":
     main()

@@ -20,16 +20,16 @@ def load_data():
 
 def getprediction(input_date):
 
-  prediction = model.predict(input_date)
+  
+
+  y_pred = model.get_forecast(len(test.index))
+  y_pred_df = y_pred.conf_int(alpha = 0.05)
+  y_pred_df["Predictions"] = model.predict(start = y_pred_df.index[-1], end = '2025-12-12')
+  y_pred_df.index = input_date
+  y_pred_out = y_pred_df["Predictions"]
+  prediction = y_pred_out[input_date]
 
   return prediction
-
-  #y_pred = model.get_forecast(len(test.index))
-  #y_pred_df = y_pred.conf_int(alpha = 0.05)
-  #y_pred_df["Predictions"] = model.predict(start = y_pred_df.index[0], end = y_pred_df.index[-1])
-  #y_pred_df.index = input_date
-  #y_pred_out = y_pred_df["Predictions"]
-    
 
   #return y_pred_out
 

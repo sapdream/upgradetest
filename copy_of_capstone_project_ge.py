@@ -106,12 +106,10 @@ def main():
   input_text = st.date_input("Enter Date to find busyness")
 
   results = getprediction(input_text)
-  st.markdown(results)
+  #st.markdown(results)
 
 if __name__ == "__main__":
     main()
-
-"""#1. ARMA"""
 
 y = train['visit_count']
 
@@ -131,8 +129,6 @@ from sklearn.metrics import mean_squared_error
 from math import sqrt
 rmse = sqrt(mean_squared_error(test['visit_count'], y_pred_out))
 #evaluate performance
-
-"""# 1.ANN"""
 
 import pandas as pd
 from sklearn.model_selection import train_test_split

@@ -44,7 +44,7 @@ def main():
       maximum_count = max(data['count'])
       minimum_count = min(data['count'])
       highest_count = maximum_count - minimum_count
-      if maximum_count > result and highest_count < result:
+      if maximum_count > results and highest_count < results:
         st.markdown("The estimated number of patient on this date will be " + results + " patients, which is considered busy for this clinic, estimated waiting time is 2 hours.")
       else:
         print("The estimated number of patient on this date will be " + results + " patients, which is considered not busy for this clinic, estimated waiting time is 15 minutes.")
